@@ -1,49 +1,27 @@
-#include <stdio.h>
 #include <iostream>
-#include<algorithm>
-
-using namespace std;
-
-template <typename Type1, typename Type2>
-
-class Compare {
-public:
-	Type1 Min(Type1 a, Type2 b) {
-		if (a < b) {
-			return a;
-		}
-		else {
-			return b;
-		}
-	}
-};
+#include "animal.h"
+#include "Dog.h"
+#include "Cat.h"
 
 int main() {
+	//creat
+	Animal* animal[3];
 
-	//1-1
-	Compare<int, int> intCompare;
-	Compare<float, float> floatCompare;
-	Compare<double, double> doubleCompare;
+	for (int i = 0; i < 2; i++) {
+		if (i < 1)
+			animal[i] = new Dog;
+		else
+			animal[i] = new Cat;
+	}
 
-	//1-2
-	Compare<int, float> intFloatCompare;
-	Compare<float, double> floatDoubleCompare;
-	Compare<int, double> intDoubleCompare;
-
-
-	int a1 = 3, a2 = 5;
-	float b1 = 7.3f, b2 = 9.4f;
-	double c1 = 10.2, c2 = 12.1;
-
-	//print result
-	printf("Min(int : %d, int : %d):\n %d\n", a1, a2, intCompare.Min(a1, a2));
-	printf("Min(float : %.2f, float : %.2f):\n %.2f\n", b1, b2, floatCompare.Min(b1, b2));
-	printf("Min(double : %.2lf, double : %.2lf):\n %.2lf\n", c1, c2, doubleCompare.Min(c1, c2));
-
-	printf("Min(int : %d, float : %.2f):\n %.2f\n", a1, b1,(float)intFloatCompare.Min(a1, b1));
-	printf("Min(float : %.2f, double : %.2f):\n %.2lf\n", b1, c1, (double)intDoubleCompare.Min(b1, c1));
-	printf("Min(int : %d, double : %.2f):\n %.2lf\n", a1, c1, (double)floatDoubleCompare.Min(a1, c1));
-
+	//call out the name
+	for (int i = 0; i < 2; i++) {
+		animal[i]->Name();
+	}
+	//del
+	for (int i = 0; i < 2; i++) {
+		delete animal[i];
+	}
 
 	return 0;
 }
