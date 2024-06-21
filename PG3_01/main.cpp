@@ -1,27 +1,14 @@
 #include <iostream>
-#include "animal.h"
-#include "Dog.h"
-#include "Cat.h"
+#include "IShape.h"
+#include "Circle.h"
+#include "Rectangle.h"
 
 int main() {
-	//creat
-	Animal* animal[3];
+    Circle circle;
+    Rectangle rectangle;
 
-	for (int i = 0; i < 2; i++) {
-		if (i < 1)
-			animal[i] = new Dog;
-		else
-			animal[i] = new Cat;
-	}
+    circle.Draw();
+    rectangle.Draw();
 
-	//call out the name
-	for (int i = 0; i < 2; i++) {
-		animal[i]->Name();
-	}
-	//del
-	for (int i = 0; i < 2; i++) {
-		delete animal[i];
-	}
-
-	return 0;
+    return 0;
 }
