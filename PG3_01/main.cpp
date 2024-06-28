@@ -17,5 +17,9 @@ int main() {
 		ishape[i]->Draw();
 	}
 
+	for (int i = 0; i < 2; i++) {
+		delete ishape[i];
+	}
+
     return 0;
 }
